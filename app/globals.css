@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/* Prevent cubes from flashing on load */
+body.loading .cube {
+  visibility: hidden;
+}
+
+/* Good default initial transform (tiny cubes far back) */
+.cube {
+  opacity: 0;
+  transform: translate3d(0, 0, -500px) scale(0.3);
+  transition: opacity 0.3s ease-out;
+}
+
+/* Mobile small cubes */
+@media (max-width: 480px) {
+  .cube {
+    transform: translate3d(0, 0, -500px) scale(0.18);
+  }
+}
+
+.cube .front {
+  transform: translateZ(75px);
+}
+.cube .back {
+  transform: translateZ(-75px) rotateY(180deg);
+}
+.cube .right {
+  transform: translateX(75px) rotateY(90deg);
+}
+.cube .left {
+  transform: translateX(-75px) rotateY(-90deg);
+}
+.cube .top {
+  transform: translateY(-75px) rotateX(90deg);
+}
+.cube .bottom {
+  transform: translateY(75px) rotateX(-90deg);
+}
+
+.lenis.lenis-smooth[data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}

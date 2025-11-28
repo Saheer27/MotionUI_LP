@@ -1,0 +1,92 @@
+.logo .block {
+  width: 35px;
+  height: 35px;
+  background-color: var(--accent);
+}
+
+.cubes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transform-style: preserve-3d;
+  perspective: 10000px;
+}
+
+.cube {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  transform-style: preserve-3d;
+}
+
+/* create the six faces inside each cube - we'll manually inject them using JS for clarity */
+.cube > div {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+.cube > div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cube .front {
+  transform: translateZ(75px);
+}
+.cube .back {
+  transform: translateZ(-75px) rotateY(180deg);
+}
+.cube .right {
+  transform: translateX(75px) rotateY(90deg);
+}
+.cube .left {
+  transform: translateX(-75px) rotateY(-90deg);
+}
+.cube .top {
+  transform: translateY(-75px) rotateX(90deg);
+}
+.cube .bottom {
+  transform: translateY(75px) rotateX(-90deg);
+}
+
+.header-1 {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center center;
+  text-align: center;
+  color: var(--accent);
+}
+.header-1 h1 {
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.header-2 {
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center center;
+  text-align: center;
+  color: var(--accent);
+  opacity: 0;
+  filter: blur(10px);
+}
+.header-2 h2 {
+  margin-bottom: 0.5rem;
+}
+.header-2 p {
+  font-size: 1.25rem;
+  font-weight: lighter;
+}
